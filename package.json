@@ -1,0 +1,25 @@
+{
+  "name": "@zbm1/useragent",
+  "version": "0.1.0",
+  "description": "useragent detect 用户代理检测",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zbm2001/useragent.git"
+  },
+  "keywords": [
+    "useragent",
+    "detect",
+    "用户代理",
+    "检测"
+  ],
+  "author": "zbm2001@aliyun.com",
+  "license": "Apache License 2.0",
+  "bugs": {
+    "url": "https://github.com/zbm2001/useragent/issues"
+  },
+  "homepage": "https://github.com/zbm2001/useragent#readme"
+}
