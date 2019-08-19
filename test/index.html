@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>事件触发器类 EventEmitter</title>
+  <style>
+    body, pre{
+      font: 1em/1.5em "Microsoft YaHei", "FangSong", "STXihei", "STHeiti";
+    }
+    pre {
+      padding: 10px 20px;
+      border: 1px solid #666;
+      border-radius: 3px;
+    }
+  </style>
+  <script src="../index.js"></script>
+  <script>
+    (function () {
+      document.writeForin = function (obj, name) {
+        var html = '<ul><li>' +
+            Object.keys(obj).map(function (key) {
+              var value = obj[key],
+                  valueStr = ''
+
+              switch (typeof value) {
+                case 'object':
+                  if (value) {
+                    valueStr = value.constructor.name
+                  } else {
+                    valueStr = 'null'
+                  }
+                  break
+                case 'function':
+                  valueStr = value.name + '()'
+                  break
+                default:
+                  valueStr = value + ''
+              }
+
+              return name + '.' + key + ': ' + valueStr
+
+            }).join('</li><li>') +
+            '</li></ul>'
+
+        document.write(html)
+      }
+
+      document.writeForinConstructor = function (func, isPrototype) {
+        var name = func.name
+        if (isPrototype) {
+          this.writeForin(func.prototype, name.charAt(0).toLowerCase() + name.slice(1))
+        } else {
+          this.writeForin(func, name)
+        }
+      }
+    })()
+  </script>
+</head>
+
+<body>
+<h2>Quick start</h2>
+<pre>
+// 创建一个事件对象
+var eventEmitter = new EventEmitter();
+
+// 注册事件侦听器：
+eventEmitter.on('do', function(e, arg1){ console.log('do', arg1.text) })
+
+// 触发事件：
+eventEmitter.emit('do', {text: 'ok'})
+
+// 删除事件侦听器:
+eventEmitter.off('do');
+
+</pre>
+
+<h2>EventEmitter原型方法和属性</h2>
+<script>
+  document.writeForinConstructor(EventEmitter, !0)
+</script>
+
+<h2>EventEmitter静态方法和属性</h2>
+<script>
+  document.writeForinConstructor(EventEmitter)
+</script>
+</body>
+</html>
