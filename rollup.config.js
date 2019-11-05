@@ -19,6 +19,7 @@ const name = filename.replace(/-([a-z])/g, (m, $1) => $1.toUpperCase())
 module.exports = {
   input: 'src/index.js',
   plugins: [
+    // https://github.com/rollup/rollup-plugin-node-resolve
     resolve({
       mainFields: ['jsnext', 'main'],
       browser: true
