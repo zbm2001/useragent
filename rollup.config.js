@@ -20,9 +20,8 @@ module.exports = {
   input: 'src/index.js',
   plugins: [
     resolve({
-      jsnext: true,
-      main: true,
-      browser: true,
+      mainFields: ['jsnext', 'main'],
+      browser: true
     }),
     commonjs({
       // namedExports: {
@@ -48,26 +47,31 @@ module.exports = {
   external: external,
   output: [
     {
+      exports: 'named',
       banner,
       name,
       file: 'index.js',
       format: 'cjs'
     }, {
+      exports: 'named',
       banner,
       name,
       file: filename + '.amd.js',
       format: 'amd'
     }, {
+      exports: 'named',
       banner,
       name,
       file: filename + '.es.js',
       format: 'es'
     }, {
+      exports: 'named',
       banner,
       name,
       file: filename + '.iife.js',
       format: 'iife'
     }, {
+      exports: 'named',
       banner,
       name,
       file: filename + '.umd.js',
